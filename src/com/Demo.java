@@ -10,7 +10,7 @@ public class Demo {
 
     public static void main(String[] args) {
         Scanner in=new Scanner(System.in);
-        System.out.print("Enter Name: ");
+        /*System.out.print("Enter Name: ");
         String name=in.nextLine();
         in.close();
 //        User user=new User(name);
@@ -23,19 +23,19 @@ public class Demo {
         session.save(emp);
         //transaction is get committed
         t.commit();
-        //session is closed
-        session.close();
-        System.out.println("Successfully saved.");
+        System.out.println("Successfully saved.");*/
 
         System.out.println("Retrieving data from database .");
-        session=MyFactory.getSession();
-        //Transaction is get started from the session
-        t=session.beginTransaction();
+        Session session=MyFactory.getSession();
         //Session is asked to save the entity
-        emp=session.get(Employee.class,1);
-        System.out.println(emp.getUserName());
+        Employee get=session.get(Employee.class,2);
+        System.out.println(get);
+        Employee load=session.load(Employee.class,2);
+        System.out.println(load);
 
 
 
+        //session is closed
+        session.close();
     }
 }
