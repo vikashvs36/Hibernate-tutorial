@@ -15,7 +15,10 @@
         <!--<mapping resource="User.hbm.xml"/>-->
         <!--<mapping class="com.modal.annotation.Employee"/>-->
 
-        <!--Table Per Hierachy-->
-        <mapping resource="com/modal/configuration/InheritanceMapping/TablePerHierachy.hbm.xml"/>
+        <!--Table Per Hierachy Class-->
+        <!--<mapping resource="com/modal/configuration/InheritanceMapping/TablePerHierachy.hbm.xml"/>-->
+
+        <!--Table Per Sub Class-->
+        <mapping resource="com/modal/configuration/InheritanceMapping/TablePerSubclass.hbm.xml"/>
     </session-factory>
 </hibernate-configuration>

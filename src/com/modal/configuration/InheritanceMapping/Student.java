@@ -1,4 +1,6 @@
-package com.modal.configuration.InheritanceMapping.TablePerHierarchy;
+package com.modal.configuration.InheritanceMapping;
+
+import com.modal.configuration.InheritanceMapping.Person;
 
 public class Student extends Person {
 

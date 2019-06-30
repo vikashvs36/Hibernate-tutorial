@@ -1,4 +1,4 @@
-package com.modal.configuration.InheritanceMapping.TablePerHierarchy;
+package com.modal.configuration.InheritanceMapping;
 
 public class Person {
     private long id;

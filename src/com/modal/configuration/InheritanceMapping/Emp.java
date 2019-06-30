@@ -1,6 +1,6 @@
-package com.modal.configuration.InheritanceMapping.TablePerHierarchy;
+package com.modal.configuration.InheritanceMapping;
 
-public class Emp extends Person{
+public class Emp extends Person {
 
     private String job;
     private long salary;
