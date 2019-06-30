@@ -1,4 +1,4 @@
-package com.Test;
+package com.Test.Is_A_RelationShip.configuration;
 
 import com.Dao.UserDao;
 import com.modal.configuration.InheritanceMapping.IS_A.Emp;

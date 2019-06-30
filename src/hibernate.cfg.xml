@@ -15,13 +15,23 @@
         <!--<mapping resource="User.hbm.xml"/>-->
         <!--<mapping class="com.modal.annotation.Employee"/>-->
 
+        <!--IS-A RelationShip Configuration base-->
+
         <!--Table Per Hierachy Class-->
-        <mapping resource="com/modal/configuration/InheritanceMapping/IS_A/TablePerHierachy.hbm.xml"/>
+        <!--<mapping resource="com/modal/configuration/InheritanceMapping/IS_A/TablePerHierachy.hbm.xml"/>-->
 
         <!--Table Per Sub Class-->
         <!--<mapping resource="com/modal/configuration/InheritanceMapping/IS_A/TablePerSubclass.hbm.xml"/>-->
 
         <!--Table Per Concrete Class-->
         <!--<mapping resource="com/modal/configuration/InheritanceMapping/IS_A/TablePerConcreteClass.hbm.xml"/>-->
+
+        <!--IS-A RelationShip Annotation base-->
+
+        <!--SINGLE_TABLE Mapping-->
+        <mapping class="com.modal.annotation.IS_A_InheritanceMapping.SINGLE_TABLE.Emp"/>
+        <mapping class="com.modal.annotation.IS_A_InheritanceMapping.SINGLE_TABLE.ContractEmp"/>
+        <mapping class="com.modal.annotation.IS_A_InheritanceMapping.SINGLE_TABLE.RegularEmp"/>
+
     </session-factory>
 </hibernate-configuration>
