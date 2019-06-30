@@ -5,18 +5,18 @@
 
 
 <hibernate-mapping>
-    <class table="person" name="com.modal.configuration.InheritanceMapping.Person">
+    <class table="person" name="com.modal.configuration.InheritanceMapping.IS_A.Person">
         <id name="id" column="id" type="java.lang.Long">
             <generator class="increment"/>
         </id>
         <property name="name" type="java.lang.String"/>
 
-        <union-subclass name="com.modal.configuration.InheritanceMapping.Student" table="student">
+        <union-subclass name="com.modal.configuration.InheritanceMapping.IS_A.Student" table="student">
             <property name="cource" type="java.lang.String"/>
             <property name="fee" type="int"/>
         </union-subclass>
 
-        <union-subclass name="com.modal.configuration.InheritanceMapping.Emp" table="emp">
+        <union-subclass name="com.modal.configuration.InheritanceMapping.IS_A.Emp" table="emp">
             <property name="job" type="java.lang.String"/>
             <property name="salary" type="java.lang.Long"/>
         </union-subclass>

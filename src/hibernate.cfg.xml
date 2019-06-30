@@ -16,12 +16,12 @@
         <!--<mapping class="com.modal.annotation.Employee"/>-->
 
         <!--Table Per Hierachy Class-->
-        <!--<mapping resource="com/modal/configuration/InheritanceMapping/TablePerHierachy.hbm.xml"/>-->
+        <mapping resource="com/modal/configuration/InheritanceMapping/IS_A/TablePerHierachy.hbm.xml"/>
 
         <!--Table Per Sub Class-->
-        <!--<mapping resource="com/modal/configuration/InheritanceMapping/TablePerSubclass.hbm.xml"/>-->
+        <!--<mapping resource="com/modal/configuration/InheritanceMapping/IS_A/TablePerSubclass.hbm.xml"/>-->
 
         <!--Table Per Concrete Class-->
-        <mapping resource="com/modal/configuration/InheritanceMapping/TablePerConcreteClass.hbm.xml"/>
+        <!--<mapping resource="com/modal/configuration/InheritanceMapping/IS_A/TablePerConcreteClass.hbm.xml"/>-->
     </session-factory>
 </hibernate-configuration>

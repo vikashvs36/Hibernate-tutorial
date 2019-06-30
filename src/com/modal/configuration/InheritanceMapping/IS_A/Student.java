@@ -1,6 +1,4 @@
-package com.modal.configuration.InheritanceMapping;
-
-import com.modal.configuration.InheritanceMapping.Person;
+package com.modal.configuration.InheritanceMapping.IS_A;
 
 public class Student extends Person {
 

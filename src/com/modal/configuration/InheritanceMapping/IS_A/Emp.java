@@ -1,4 +1,4 @@
-package com.modal.configuration.InheritanceMapping;
+package com.modal.configuration.InheritanceMapping.IS_A;
 
 public class Emp extends Person {
 

@@ -1,9 +1,8 @@
 package com.Test;
 
 import com.Dao.UserDao;
-import com.modal.configuration.InheritanceMapping.Emp;
-import com.modal.configuration.InheritanceMapping.Person;
-import com.modal.configuration.InheritanceMapping.Student;
+import com.modal.configuration.InheritanceMapping.IS_A.Emp;
+import com.modal.configuration.InheritanceMapping.IS_A.Student;
 
 public class TablePerSubclassDemo {
 

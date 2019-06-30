@@ -4,19 +4,19 @@
         "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 
 <hibernate-mapping>
-    <class name="com.modal.configuration.InheritanceMapping.Person" table="person">
+    <class name="com.modal.configuration.InheritanceMapping.IS_A.Person" table="person">
         <id type="java.lang.Long" name="id" column="id">
             <generator class="increment"/>
         </id>
         <property name="name" column="name" type="java.lang.String"/>
 
-        <joined-subclass name="com.modal.configuration.InheritanceMapping.Student" table="student">
+        <joined-subclass name="com.modal.configuration.InheritanceMapping.IS_A.Student" table="student">
             <key column="st_id"></key>
             <property name="cource" type="java.lang.String"/>
             <property name="fee" type="int"/>
         </joined-subclass>
 
-        <joined-subclass name="com.modal.configuration.InheritanceMapping.Emp" table="emp">
+        <joined-subclass name="com.modal.configuration.InheritanceMapping.IS_A.Emp" table="emp">
             <key column="emp_id"></key>
             <property name="job" type="java.lang.String"/>
             <property name="salary" type="java.lang.Long"/>
