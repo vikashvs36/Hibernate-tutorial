@@ -1,4 +1,4 @@
-package com;
+package com.Test;
 
 import com.Dao.UserDao;
 import com.modal.annotation.Employee;
@@ -7,7 +7,7 @@ import org.hibernate.*;
 
 import java.util.Scanner;
 
-public class Demo {
+public class CrudDemo {
 
     public static void main(String[] args) {
 

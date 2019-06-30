@@ -1,6 +1,6 @@
 package com.Dao;
 
-import com.MyFactory;
+import com.Factory.MyFactory;
 import com.modal.configuration.User;
 import org.hibernate.Session;
 import org.hibernate.Transaction;

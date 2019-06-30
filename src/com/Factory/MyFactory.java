@@ -1,4 +1,4 @@
-package com;
+package com.Factory;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
