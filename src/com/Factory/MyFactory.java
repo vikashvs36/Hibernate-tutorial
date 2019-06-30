@@ -9,8 +9,12 @@ public class MyFactory {
     private static SessionFactory factory;
 
     static {
-        Configuration cfg=new Configuration().configure();
-        factory=cfg.buildSessionFactory();
+        try {
+            Configuration cfg = new Configuration().configure();
+            factory = cfg.buildSessionFactory();
+        }catch (Exception e) {
+            System.out.println("Exception : "+e);
+        }
     }
 
     public static Session getSession() {

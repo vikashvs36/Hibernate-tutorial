@@ -14,7 +14,7 @@ public class UserDao {
         return user!=null ? user : null;
     }
 
-    public static void save(User user) {
+    public static void save(Object user) {
         Session session= MyFactory.getSession();
         Transaction transaction=session.beginTransaction();
         session.save(user);
@@ -22,7 +22,7 @@ public class UserDao {
         session.close();
     }
 
-    public static void update(User user) {
+    public static void update(Object user) {
         Session session= MyFactory.getSession();
         Transaction transaction=session.beginTransaction();
         session.merge(user);
@@ -30,7 +30,7 @@ public class UserDao {
         session.close();
     }
 
-    public static void delete(User user) {
+    public static void delete(Object user) {
         Session session= MyFactory.getSession();
         Transaction transaction=session.beginTransaction();
         session.delete(user);
