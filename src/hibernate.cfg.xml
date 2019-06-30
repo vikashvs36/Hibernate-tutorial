@@ -19,6 +19,9 @@
         <!--<mapping resource="com/modal/configuration/InheritanceMapping/TablePerHierachy.hbm.xml"/>-->
 
         <!--Table Per Sub Class-->
-        <mapping resource="com/modal/configuration/InheritanceMapping/TablePerSubclass.hbm.xml"/>
+        <!--<mapping resource="com/modal/configuration/InheritanceMapping/TablePerSubclass.hbm.xml"/>-->
+
+        <!--Table Per Concrete Class-->
+        <mapping resource="com/modal/configuration/InheritanceMapping/TablePerConcreteClass.hbm.xml"/>
     </session-factory>
 </hibernate-configuration>
