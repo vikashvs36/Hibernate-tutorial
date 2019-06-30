@@ -29,9 +29,14 @@
         <!--IS-A RelationShip Annotation base-->
 
         <!--SINGLE_TABLE Mapping-->
-        <mapping class="com.modal.annotation.IS_A_InheritanceMapping.SINGLE_TABLE.Emp"/>
+        <!--<mapping class="com.modal.annotation.IS_A_InheritanceMapping.SINGLE_TABLE.Emp"/>
         <mapping class="com.modal.annotation.IS_A_InheritanceMapping.SINGLE_TABLE.ContractEmp"/>
-        <mapping class="com.modal.annotation.IS_A_InheritanceMapping.SINGLE_TABLE.RegularEmp"/>
+        <mapping class="com.modal.annotation.IS_A_InheritanceMapping.SINGLE_TABLE.RegularEmp"/>-->
+
+        <!--JOINED_TABLE Mapping-->
+        <mapping class="com.modal.annotation.IS_A_InheritanceMapping.JOINED_TABLE.Emp"/>
+        <mapping class="com.modal.annotation.IS_A_InheritanceMapping.JOINED_TABLE.ContractEmp"/>
+        <mapping class="com.modal.annotation.IS_A_InheritanceMapping.JOINED_TABLE.RegularEmp"/>
 
     </session-factory>
 </hibernate-configuration>
