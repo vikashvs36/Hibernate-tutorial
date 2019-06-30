@@ -1,4 +1,4 @@
-package com.modal;
+package com.modal.configuration;
 
 public class User {
 

@@ -12,6 +12,6 @@
         <property name="connection.password">root</property>
         <property name="show_sql">true</property>
         <!--<mapping resource="User.hbm.xml"/>-->
-        <mapping class="com.modal.UserDetails"/>
+        <mapping class="com.modal.annotation.Employee"/>
     </session-factory>
 </hibernate-configuration>
