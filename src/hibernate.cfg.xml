@@ -5,7 +5,7 @@
 
 <hibernate-configuration>
     <session-factory>
-        <property name="hbm2ddl.auto">update</property>
+        <property name="hbm2ddl.auto">create-drop</property>
         <property name="connection.driver_class">com.mysql.jdbc.Driver</property>
         <property name="connection.url">jdbc:mysql://localhost:3306/hibernate</property>
         <property name="connection.username">root</property>
@@ -34,9 +34,14 @@
         <mapping class="com.modal.annotation.IS_A_InheritanceMapping.SINGLE_TABLE.RegularEmp"/>-->
 
         <!--JOINED_TABLE Mapping-->
-        <mapping class="com.modal.annotation.IS_A_InheritanceMapping.JOINED_TABLE.Emp"/>
+        <!--<mapping class="com.modal.annotation.IS_A_InheritanceMapping.JOINED_TABLE.Emp"/>
         <mapping class="com.modal.annotation.IS_A_InheritanceMapping.JOINED_TABLE.ContractEmp"/>
-        <mapping class="com.modal.annotation.IS_A_InheritanceMapping.JOINED_TABLE.RegularEmp"/>
+        <mapping class="com.modal.annotation.IS_A_InheritanceMapping.JOINED_TABLE.RegularEmp"/>-->
+
+        <!--TABLE_PER_CLASS Mapping-->
+        <mapping class="com.modal.annotation.IS_A_InheritanceMapping.TABLE_PER_CLASS.Emp"/>
+        <mapping class="com.modal.annotation.IS_A_InheritanceMapping.TABLE_PER_CLASS.ContractEmp"/>
+        <mapping class="com.modal.annotation.IS_A_InheritanceMapping.TABLE_PER_CLASS.RegularEmp"/>
 
     </session-factory>
 </hibernate-configuration>
