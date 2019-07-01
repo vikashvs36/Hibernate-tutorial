@@ -11,6 +11,8 @@ Hibernate is an ORM framework. ORM (Object Relation Mapping) is a mechanism to m
  
 * Table per class hierarchy
 
+    > Configuration Strategy
+
         <hibernate-mapping>
             <class name="com.modal.configuration.InheritanceMapping.IS_A.Person" table="person">
                 <id name="id" type="java.lang.Long">
@@ -30,8 +32,22 @@ Hibernate is an ORM framework. ORM (Object Relation Mapping) is a mechanism to m
                 </subclass>
             </class>
         </hibernate-mapping>
+    
+    > Annotation Strategy
+    
+        @Entity
+        @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+        @DiscriminatorColumn(name = "type", discriminatorType = DiscriminatorType.STRING)
+        @DiscriminatorValue(value = "emp")
+        public class Emp {
+        
+        @Entity
+        @DiscriminatorValue(value = "regular_emp")
+        public class RegularEmp extends Emp {
 
 * Table per subclass
+
+    > Configuration Strategy
 
         <hibernate-mapping>
             <class name="com.modal.configuration.InheritanceMapping.IS_A.Person" table="person">
@@ -53,8 +69,20 @@ Hibernate is an ORM framework. ORM (Object Relation Mapping) is a mechanism to m
                 </joined-subclass>
             </class>
         </hibernate-mapping>
+    
+    > Annotation Strategy
+    
+        @Entity
+        @Inheritance(strategy = InheritanceType.JOINED)
+        public class Emp {
+        
+        @Entity
+        @PrimaryKeyJoinColumn(name = "id")
+        public class RegularEmp extends Emp {
 
 * Table per concrete class 
+
+    > Configuration Strategy
     
         <hibernate-mapping>
             <class table="person" name="com.modal.configuration.InheritanceMapping.IS_A.Person">
@@ -75,3 +103,20 @@ Hibernate is an ORM framework. ORM (Object Relation Mapping) is a mechanism to m
         
             </class>
         </hibernate-mapping>
+    
+    > Annotation Strategy
+    
+        @Entity
+        @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
+        public class Emp {
+            
+        @Entity
+        @Table(name = "regular_emp")
+        @AttributeOverrides({
+            @AttributeOverride(name="id", column=@Column(name="id")),
+            @AttributeOverride(name="name", column=@Column(name="name"))
+        })
+        public class RegularEmp extends Emp {
+       
+You can visit "https://docs.jboss.org/hibernate/core/3.3/reference/en/html/inheritance.html" for more information.
+
