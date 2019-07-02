@@ -39,9 +39,12 @@
         <mapping class="com.modal.annotation.IS_A_InheritanceMapping.JOINED_TABLE.RegularEmp"/>-->
 
         <!--TABLE_PER_CLASS Mapping-->
-        <mapping class="com.modal.annotation.IS_A_InheritanceMapping.TABLE_PER_CLASS.Emp"/>
+        <!--<mapping class="com.modal.annotation.IS_A_InheritanceMapping.TABLE_PER_CLASS.Emp"/>
         <mapping class="com.modal.annotation.IS_A_InheritanceMapping.TABLE_PER_CLASS.ContractEmp"/>
-        <mapping class="com.modal.annotation.IS_A_InheritanceMapping.TABLE_PER_CLASS.RegularEmp"/>
+        <mapping class="com.modal.annotation.IS_A_InheritanceMapping.TABLE_PER_CLASS.RegularEmp"/>-->
+
+        <!--Embedded mapping-->
+        <mapping class="com.modal.Embeded.User"/>
 
     </session-factory>
 </hibernate-configuration>
