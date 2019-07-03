@@ -1,0 +1,30 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate mapping DTD//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+
+<hibernate-mapping>
+    <class name="com.modal.has_A_RelationShip.configuration.oneToOne.uniDirectional.Capital" table="capital">
+        <id name="id" type="int">
+            <generator class="increment" />
+        </id>
+        <property name="name" type="java.lang.String"/>
+    </class>
+
+    <class name="com.modal.has_A_RelationShip.configuration.oneToOne.uniDirectional.State" table="state">
+        <id type="int" name="id">
+            <generator class="increment"/>
+        </id>
+        <property name="name" type="java.lang.String"/>
+
+        <join table="state_capital">
+            <key column="state_id"/>
+
+            <many-to-one unique="true" name="capital"
+                     class="com.modal.has_A_RelationShip.configuration.oneToOne.uniDirectional.Capital"
+                     column="capital_id"
+                     cascade="all"/>
+        </join>
+    </class>
+</hibernate-mapping>

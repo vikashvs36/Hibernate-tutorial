@@ -152,3 +152,128 @@ You can visit "https://docs.jboss.org/hibernate/core/3.3/reference/en/html/inher
             // Setter and getter
         }
 
+## Relationships 
+
+There are four types of mapping. which is given below :
+
+* One To One
+* One To Many
+* Many To One 
+* Many To Many
+
+Each of these relation can be Uni-directional and Bi-directional.
+
+> Uni-directional
+
+In Uni-directional relation can be access from only one side. It's only from main or owner entity. for example if 
+there are two table User and Profile then we can access Profile properties from User side but we can't access user
+from Profile side. 
+
+> Bi-directional
+
+In Uni-directional relation can be access from both of side. It may be main entity or relational entity. for example
+if there are two table User and Profile then we can access Profile properties from User side and also access user 
+from Profile side.
+
+## One To One - Relation
+
+One to One relation can be mapped in the flowing three ways :
+
+* Same primary key mapping
+* Primary key foreign key mapping
+* Relation table mapping
+
+### Implement One To One relation using Uni-directional
+
+> Same primary key mapping
+
+In this approach, Owner and owned entity tables are mapped by using the same primary key values in the related records.
+
+**Configuration Strategy**
+
+    <hibernate-mapping>
+        <-- Owned entity -->
+        <class name="com.modal.has_A_RelationShip.configuration.oneToOne.uniDirectional.Capital" table="capital">
+            <id name="id" type="int">
+                <generator class="increment" />
+            </id>
+            <property name="name" type="java.lang.String"/>
+        </class>
+    
+        <-- Owner entity -->
+        <class name="com.modal.has_A_RelationShip.configuration.oneToOne.uniDirectional.State" table="state">
+            <id type="int" name="id">
+                <generator class="foreign">
+                    <param name="property">capital</param>
+                </generator>
+            </id>
+    
+            <property name="name" type="java.lang.String"/>
+            <one-to-one name="capital" 
+                        class="com.modal.has_A_RelationShip.configuration.oneToOne.uniDirectional.Capital" 
+                        cascade="all"/>
+        </class>
+    </hibernate-mapping>
+ 
+> Primary key foreign key mapping
+
+In this Approach, Entities are mapped is using by the primary key of owned entity table as the foreign key in th owner
+entity table.
+
+**Configuration Strategy**
+
+    <hibernate-mapping>
+        <-- Owned entity -->
+        <class name="com.modal.has_A_RelationShip.configuration.oneToOne.uniDirectional.Capital" table="capital">
+            <id name="id" type="int">
+                <generator class="increment" />
+            </id>
+            <property name="name" type="java.lang.String"/>
+        </class>
+    
+        <-- Owner entity -->
+        <class name="com.modal.has_A_RelationShip.configuration.oneToOne.uniDirectional.State" table="state">
+            <id type="int" name="id">
+                <generator class="increment"/>
+            </id>
+            <property name="name" type="java.lang.String"/>
+    
+            <many-to-one unique="true" name="capital"
+                         class="com.modal.has_A_RelationShip.configuration.oneToOne.uniDirectional.Capital"
+                         column="capital_id"
+                         cascade="all"/>
+        </class>
+    </hibernate-mapping>
+    
+> Relation table mapping
+
+In this approach, Both entities are linked with the help of the relation table which contains primary key of 
+both the table as foreign key. That mean a third table will be created.
+
+**Configuration Strategy**
+
+    <hibernate-mapping>
+        <class name="com.modal.has_A_RelationShip.configuration.oneToOne.uniDirectional.Capital" table="capital">
+            <id name="id" type="int">
+                <generator class="increment" />
+            </id>
+            <property name="name" type="java.lang.String"/>
+        </class>
+    
+        <class name="com.modal.has_A_RelationShip.configuration.oneToOne.uniDirectional.State" table="state">
+            <id type="int" name="id">
+                <generator class="increment"/>
+            </id>
+            <property name="name" type="java.lang.String"/>
+    
+            <join table="state_capital">
+                <key column="state_id"/>
+    
+                <many-to-one unique="true" name="capital"
+                         class="com.modal.has_A_RelationShip.configuration.oneToOne.uniDirectional.Capital"
+                         column="capital_id"
+                         cascade="all"/>
+            </join>
+        </class>
+    </hibernate-mapping>
+

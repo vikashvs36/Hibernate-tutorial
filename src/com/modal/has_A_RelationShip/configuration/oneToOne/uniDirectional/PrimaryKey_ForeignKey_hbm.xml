@@ -1,0 +1,32 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate mapping DTD//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+
+<hibernate-mapping>
+    <class name="com.modal.has_A_RelationShip.configuration.oneToOne.uniDirectional.Capital" table="capital">
+        <id name="id" type="int">
+            <generator class="increment" />
+        </id>
+        <property name="name" type="java.lang.String"/>
+    </class>
+
+    <class name="com.modal.has_A_RelationShip.configuration.oneToOne.uniDirectional.State" table="state">
+        <id type="int" name="id">
+            <generator class="increment"/>
+        </id>
+        <property name="name" type="java.lang.String"/>
+
+        <many-to-one unique="true" name="capital"
+                     class="com.modal.has_A_RelationShip.configuration.oneToOne.uniDirectional.Capital"
+                     column="capital_id"
+                     cascade="all"/>
+    </class>
+</hibernate-mapping>
+
+<!--
+Note :
+    * Select max from Capital table and insert into id as a primary key in capital table and same primary key insert into
+    State table as foreign key in new column like capital_id.
+-->
