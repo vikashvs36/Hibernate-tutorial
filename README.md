@@ -120,3 +120,35 @@ Hibernate is an ORM framework. ORM (Object Relation Mapping) is a mechanism to m
        
 You can visit "https://docs.jboss.org/hibernate/core/3.3/reference/en/html/inheritance.html" for more information.
 
+## Embedded
+
+   > Annotation Strategy
+
+        @Entity
+        @Table(name = "user")
+        public class User {
+        
+            @Id
+            @GeneratedValue(strategy = GenerationType.AUTO)
+            private int id;
+            private String username;
+            @Embedded
+            @AttributeOverrides({
+                    @AttributeOverride(name = "city", column = @Column(name = "home_city")),
+                    @AttributeOverride(name = "state", column = @Column(name = "home_state")),
+                    @AttributeOverride(name = "country", column = @Column(name = "home_country")),
+                    @AttributeOverride(name = "pincode", column = @Column(name = "home_pincode"))
+            })
+            private Address home_address;
+            @Embedded
+            private Address office_address;
+            // Setter and getter
+        }    
+   
+        @Embeddable
+        public class Address {
+            private String state;
+            private String country;
+            // Setter and getter
+        }
+
