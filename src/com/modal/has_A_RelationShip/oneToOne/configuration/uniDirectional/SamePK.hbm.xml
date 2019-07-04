@@ -5,14 +5,14 @@
 
 
 <hibernate-mapping>
-    <class name="com.modal.has_A_RelationShip.configuration.oneToOne.uniDirectional.Capital" table="capital">
+    <class name="com.modal.has_A_RelationShip.oneToOne.configuration.uniDirectional.Capital" table="capital">
         <id name="id" type="int">
             <generator class="increment" />
         </id>
         <property name="name" type="java.lang.String"/>
     </class>
 
-    <class name="com.modal.has_A_RelationShip.configuration.oneToOne.uniDirectional.State" table="state">
+    <class name="com.modal.has_A_RelationShip.oneToOne.configuration.uniDirectional.State" table="state">
         <id type="int" name="id">
             <generator class="foreign">
                 <param name="property">capital</param>
@@ -20,7 +20,7 @@
         </id>
 
         <property name="name" type="java.lang.String"/>
-        <one-to-one name="capital" class="com.modal.has_A_RelationShip.configuration.oneToOne.uniDirectional.Capital" cascade="all"/>
+        <one-to-one name="capital" class="com.modal.has_A_RelationShip.oneToOne.configuration.uniDirectional.Capital" cascade="all"/>
 
     </class>
 

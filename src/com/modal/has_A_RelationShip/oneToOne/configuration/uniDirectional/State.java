@@ -1,4 +1,4 @@
-package com.modal.has_A_RelationShip.configuration.oneToOne.uniDirectional;
+package com.modal.has_A_RelationShip.oneToOne.configuration.uniDirectional;
 
 public class State {
 

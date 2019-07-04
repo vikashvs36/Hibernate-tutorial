@@ -7,11 +7,11 @@ Hibernate is an ORM framework. ORM (Object Relation Mapping) is a mechanism to m
 
 ## Inheritance - IS-A Relationship
 
-> Hibernate supports the three basic inheritance mapping strategies:
+> ### Hibernate supports the three basic inheritance mapping strategies:
  
 * Table per class hierarchy
 
-    > Configuration Strategy
+    > ### Configuration Strategy
 
         <hibernate-mapping>
             <class name="com.modal.configuration.InheritanceMapping.IS_A.Person" table="person">
@@ -33,7 +33,7 @@ Hibernate is an ORM framework. ORM (Object Relation Mapping) is a mechanism to m
             </class>
         </hibernate-mapping>
     
-    > Annotation Strategy
+    > ### Annotation Strategy
     
         @Entity
         @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
@@ -47,7 +47,7 @@ Hibernate is an ORM framework. ORM (Object Relation Mapping) is a mechanism to m
 
 * Table per subclass
 
-    > Configuration Strategy
+    > ### Configuration Strategy
 
         <hibernate-mapping>
             <class name="com.modal.configuration.InheritanceMapping.IS_A.Person" table="person">
@@ -70,7 +70,7 @@ Hibernate is an ORM framework. ORM (Object Relation Mapping) is a mechanism to m
             </class>
         </hibernate-mapping>
     
-    > Annotation Strategy
+    > ### Annotation Strategy
     
         @Entity
         @Inheritance(strategy = InheritanceType.JOINED)
@@ -82,7 +82,7 @@ Hibernate is an ORM framework. ORM (Object Relation Mapping) is a mechanism to m
 
 * Table per concrete class 
 
-    > Configuration Strategy
+    > ### Configuration Strategy
     
         <hibernate-mapping>
             <class table="person" name="com.modal.configuration.InheritanceMapping.IS_A.Person">
@@ -104,7 +104,7 @@ Hibernate is an ORM framework. ORM (Object Relation Mapping) is a mechanism to m
             </class>
         </hibernate-mapping>
     
-    > Annotation Strategy
+    > ### Annotation Strategy
     
         @Entity
         @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
@@ -122,7 +122,7 @@ You can visit "https://docs.jboss.org/hibernate/core/3.3/reference/en/html/inher
 
 ## Embedded
 
-   > Annotation Strategy
+   > ### Annotation Strategy
 
         @Entity
         @Table(name = "user")
@@ -163,13 +163,13 @@ There are four types of mapping. which is given below :
 
 Each of these relation can be Uni-directional and Bi-directional.
 
-> Uni-directional
+> ### Uni-directional
 
 In Uni-directional relation can be access from only one side. It's only from main or owner entity. for example if 
 there are two table User and Profile then we can access Profile properties from User side but we can't access user
 from Profile side. 
 
-> Bi-directional
+> ### Bi-directional
 
 In Uni-directional relation can be access from both of side. It may be main entity or relational entity. for example
 if there are two table User and Profile then we can access Profile properties from User side and also access user 
@@ -185,15 +185,15 @@ One to One relation can be mapped in the flowing three ways :
 
 ### Implement One To One relation using Uni-directional
 
-> Same primary key mapping
+> ### Same primary key mapping
 
 In this approach, Owner and owned entity tables are mapped by using the same primary key values in the related records.
 
-**Configuration Strategy**
+**Configuration Based**
 
     <hibernate-mapping>
         <-- Owned entity -->
-        <class name="com.modal.has_A_RelationShip.configuration.oneToOne.uniDirectional.Capital" table="capital">
+        <class name="com.modal.has_A_RelationShip.oneToOne.configuration.uniDirectional.Capital" table="capital">
             <id name="id" type="int">
                 <generator class="increment" />
             </id>
@@ -201,7 +201,7 @@ In this approach, Owner and owned entity tables are mapped by using the same pri
         </class>
     
         <-- Owner entity -->
-        <class name="com.modal.has_A_RelationShip.configuration.oneToOne.uniDirectional.State" table="state">
+        <class name="com.modal.has_A_RelationShip.oneToOne.configuration.uniDirectional.State" table="state">
             <id type="int" name="id">
                 <generator class="foreign">
                     <param name="property">capital</param>
@@ -210,21 +210,26 @@ In this approach, Owner and owned entity tables are mapped by using the same pri
     
             <property name="name" type="java.lang.String"/>
             <one-to-one name="capital" 
-                        class="com.modal.has_A_RelationShip.configuration.oneToOne.uniDirectional.Capital" 
+                        class="com.modal.has_A_RelationShip.oneToOne.configuration.uniDirectional.Capital" 
                         cascade="all"/>
         </class>
     </hibernate-mapping>
+    
+
+
+  
+    
  
-> Primary key foreign key mapping
+> ### Primary key foreign key mapping
 
 In this Approach, Entities are mapped is using by the primary key of owned entity table as the foreign key in th owner
 entity table.
 
-**Configuration Strategy**
+**Configuration Based**
 
     <hibernate-mapping>
         <-- Owned entity -->
-        <class name="com.modal.has_A_RelationShip.configuration.oneToOne.uniDirectional.Capital" table="capital">
+        <class name="com.modal.has_A_RelationShip.oneToOne.configuration.uniDirectional.Capital" table="capital">
             <id name="id" type="int">
                 <generator class="increment" />
             </id>
@@ -232,35 +237,35 @@ entity table.
         </class>
     
         <-- Owner entity -->
-        <class name="com.modal.has_A_RelationShip.configuration.oneToOne.uniDirectional.State" table="state">
+        <class name="com.modal.has_A_RelationShip.oneToOne.configuration.uniDirectional.State" table="state">
             <id type="int" name="id">
                 <generator class="increment"/>
             </id>
             <property name="name" type="java.lang.String"/>
     
             <many-to-one unique="true" name="capital"
-                         class="com.modal.has_A_RelationShip.configuration.oneToOne.uniDirectional.Capital"
+                         class="com.modal.has_A_RelationShip.oneToOne.configuration.uniDirectional.Capital"
                          column="capital_id"
                          cascade="all"/>
         </class>
     </hibernate-mapping>
     
-> Relation table mapping
+> ### Relation table mapping
 
 In this approach, Both entities are linked with the help of the relation table which contains primary key of 
 both the table as foreign key. That mean a third table will be created.
 
-**Configuration Strategy**
+**Configuration Based**
 
     <hibernate-mapping>
-        <class name="com.modal.has_A_RelationShip.configuration.oneToOne.uniDirectional.Capital" table="capital">
+        <class name="com.modal.has_A_RelationShip.oneToOne.configuration.uniDirectional.Capital" table="capital">
             <id name="id" type="int">
                 <generator class="increment" />
             </id>
             <property name="name" type="java.lang.String"/>
         </class>
     
-        <class name="com.modal.has_A_RelationShip.configuration.oneToOne.uniDirectional.State" table="state">
+        <class name="com.modal.has_A_RelationShip.oneToOne.configuration.uniDirectional.State" table="state">
             <id type="int" name="id">
                 <generator class="increment"/>
             </id>
@@ -270,10 +275,13 @@ both the table as foreign key. That mean a third table will be created.
                 <key column="state_id"/>
     
                 <many-to-one unique="true" name="capital"
-                         class="com.modal.has_A_RelationShip.configuration.oneToOne.uniDirectional.Capital"
+                         class="com.modal.has_A_RelationShip.oneToOne.configuration.uniDirectional.Capital"
                          column="capital_id"
                          cascade="all"/>
             </join>
         </class>
     </hibernate-mapping>
+
+
+### Implement One To One relation using Bi-directional
 
