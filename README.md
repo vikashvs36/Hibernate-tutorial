@@ -242,11 +242,7 @@ In this approach, Owner and owned entity tables are mapped by using the same pri
         private String address;
         
         // Setter and Getter    
-    }
-
-
-  
-    
+    }   
  
 > ### Primary key foreign key mapping
 
@@ -276,12 +272,32 @@ entity table.
                          column="capital_id"
                          cascade="all"/>
         </class>
-    </hibernate-mapping>
-    
+    </hibernate-mapping>   
 
 **Annotation Based**  
 
+    @Entity
+    @Table(name = "user")
+    public class User {
     
+        @Id
+        @GeneratedValue(strategy = GenerationType.IDENTITY)
+        private long id;
+        private String username, password;
+        @OneToOne(cascade = CascadeType.ALL)
+        @JoinColumn(name = "profile_id", unique = true)
+        private Profile profile;
+    }
+    
+    @Entity
+    @Table(name = "profile")
+    public class Profile {
+    
+        @Id
+        @GeneratedValue(strategy = GenerationType.IDENTITY)
+        private int id;
+        private String address;
+    }
     
 > ### Relation table mapping
 
@@ -315,6 +331,35 @@ both the table as foreign key. That mean a third table will be created.
         </class>
     </hibernate-mapping>
 
+**Annotation Based**  
+
+    @Entity
+    @Table(name = "user")
+    public class User {
+        @Id
+        @GeneratedValue
+        private long id;
+        private String username, password;
+        @OneToOne(cascade = CascadeType.ALL)
+        @JoinTable(name = "user_profile",
+                joinColumns = {
+                    @JoinColumn(name = "user_id", referencedColumnName = "id")
+                },
+                inverseJoinColumns = {
+                    @JoinColumn(name = "profile_id", referencedColumnName = "id")
+                }
+        )
+        private Profile profile;    
+    }
+        
+    @Entity
+    @Table(name = "profile")
+    public class Profile {
+        @Id
+        @GeneratedValue
+        private int id;
+        private String address;
+    }        
 
 ### Implement One To One relation using Bi-directional
 
