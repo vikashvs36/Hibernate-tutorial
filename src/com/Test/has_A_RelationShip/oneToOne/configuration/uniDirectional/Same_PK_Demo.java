@@ -1,4 +1,4 @@
-package com.Test.has_A_RelationShip.configuration.oneToOne.uniDirectional;
+package com.Test.has_A_RelationShip.oneToOne.configuration.uniDirectional;
 
 import com.Dao.UserDao;
 import com.modal.has_A_RelationShip.oneToOne.configuration.uniDirectional.Capital;
