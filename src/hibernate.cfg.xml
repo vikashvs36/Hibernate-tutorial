@@ -5,7 +5,7 @@
 
 <hibernate-configuration>
     <session-factory>
-        <property name="hbm2ddl.auto">create-drop</property>
+        <property name="hbm2ddl.auto">update</property>
         <property name="connection.driver_class">com.mysql.jdbc.Driver</property>
         <property name="connection.url">jdbc:mysql://localhost:3306/hb</property>
         <property name="connection.username">root</property>
@@ -53,15 +53,25 @@
 
 
         <!--one To One (Uni-Directional) RelationShip-->
+        <!--Configuration based-->
 
         <!--Same primary key relation-->
-        <mapping resource="com/modal/has_A_RelationShip/oneToOne/configuration/uniDirectional/SamePK.hbm.xml"/>
+        <!--<mapping resource="com/modal/has_A_RelationShip/oneToOne/configuration/uniDirectional/SamePK.hbm.xml"/>-->
 
         <!--Same primary key relation-->
         <!--<mapping resource="com/modal/has_A_RelationShip/oneToOne/configuration/uniDirectional/PrimaryKey_ForeignKey_hbm.xml"/>-->
 
         <!--Relation table relation-->
         <!--<mapping resource="com/modal/has_A_RelationShip/oneToOne/configuration/uniDirectional/RelationTable.hbm.xml"/>-->
+
+
+
+        <!--one To One (Uni-Directional) RelationShip-->
+        <!--Annotation Based-->
+
+        <!--Same primary key relation-->
+        <mapping class="com.modal.has_A_RelationShip.oneToOne.Annotation.uniDirectional.Same_Pk.User"/>
+        <mapping class="com.modal.has_A_RelationShip.oneToOne.Annotation.uniDirectional.Same_Pk.Profile"/>
 
     </session-factory>
 </hibernate-configuration>

@@ -215,6 +215,34 @@ In this approach, Owner and owned entity tables are mapped by using the same pri
         </class>
     </hibernate-mapping>
     
+**Annotation Based**  
+    
+    @Entity
+    @Table(name = "user")
+    public class User {
+    
+        @Id
+        @GeneratedValue(generator= "foreigngen")
+        private long id;
+        private String username, password;
+        @OneToOne(cascade = CascadeType.ALL)
+        @PrimaryKeyJoinColumn
+        private Profile profile;
+        
+        // Setter and Getter    
+    }
+    
+    @Entity
+    @Table(name = "profile")
+    public class Profile {
+    
+        @Id
+        @GeneratedValue
+        private int id;
+        private String address;
+        
+        // Setter and Getter    
+    }
 
 
   
@@ -249,6 +277,11 @@ entity table.
                          cascade="all"/>
         </class>
     </hibernate-mapping>
+    
+
+**Annotation Based**  
+
+    
     
 > ### Relation table mapping
 
