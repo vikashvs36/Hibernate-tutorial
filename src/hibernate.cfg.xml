@@ -70,8 +70,12 @@
         <!--Annotation Based-->
 
         <!--Same primary key relation-->
-        <mapping class="com.modal.has_A_RelationShip.oneToOne.Annotation.uniDirectional.Same_Pk.User"/>
-        <mapping class="com.modal.has_A_RelationShip.oneToOne.Annotation.uniDirectional.Same_Pk.Profile"/>
+        <!--<mapping class="com.modal.has_A_RelationShip.oneToOne.Annotation.uniDirectional.Same_Pk.User"/>
+        <mapping class="com.modal.has_A_RelationShip.oneToOne.Annotation.uniDirectional.Same_Pk.Profile"/>-->
+
+        <!--Primary key Foreign key relation-->
+        <mapping class="com.modal.has_A_RelationShip.oneToOne.Annotation.uniDirectional.Pk_FK.User"/>
+        <mapping class="com.modal.has_A_RelationShip.oneToOne.Annotation.uniDirectional.Pk_FK.Profile"/>
 
     </session-factory>
 </hibernate-configuration>
