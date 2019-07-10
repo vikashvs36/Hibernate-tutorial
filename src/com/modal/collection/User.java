@@ -1,32 +1,36 @@
-package com.modal.has_A_RelationShip.oneToOne.Annotation.uniDirectional.Same_Pk;
+package com.modal.collection;
 
 import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Table(name = "user")
 public class User {
 
     @Id
-    @GeneratedValue(generator= "foreigngen")
-    private long id;
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private int id;
     private String username, password;
-    @OneToOne(cascade = CascadeType.ALL)
-    @PrimaryKeyJoinColumn
-    private Profile profile;
+
+    @ElementCollection
+    @JoinTable(name = "user_address",
+             joinColumns = @JoinColumn(name = "user_id")
+    )
+    private Set<Address> addressSet = new HashSet<>();
 
     public User() { }
 
-    public User(String username, String password, Profile profile) {
+    public User(String username, String password) {
         this.username = username;
         this.password = password;
-        this.profile = profile;
     }
 
-    public long getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(int id) {
         this.id = id;
     }
 
@@ -46,11 +50,11 @@ public class User {
         this.password = password;
     }
 
-    public Profile getProfile() {
-        return profile;
+    public Set<Address> getAddressSet() {
+        return addressSet;
     }
 
-    public void setProfile(Profile profile) {
-        this.profile = profile;
+    public void setAddressSet(Set<Address> addressSet) {
+        this.addressSet = addressSet;
     }
 }
