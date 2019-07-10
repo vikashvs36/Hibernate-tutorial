@@ -12,74 +12,7 @@
         <property name="connection.password">root</property>
         <property name="show_sql">true</property>
 
-        <!--<mapping resource="User.hbm.xml"/>-->
-        <!--<mapping class="com.modal.annotation.Employee"/>-->
 
-
-
-        <!--IS-A RelationShip Configuration base-->
-
-        <!--Table Per Hierachy Class-->
-        <!--<mapping resource="com/modal/configuration/InheritanceMapping/IS_A/TablePerHierachy.hbm.xml"/>-->
-
-        <!--Table Per Sub Class-->
-        <!--<mapping resource="com/modal/configuration/InheritanceMapping/IS_A/TablePerSubclass.hbm.xml"/>-->
-
-        <!--Table Per Concrete Class-->
-        <!--<mapping resource="com/modal/configuration/InheritanceMapping/IS_A/TablePerConcreteClass.hbm.xml"/>-->
-
-
-
-        <!--IS-A RelationShip Annotation base-->
-
-        <!--SINGLE_TABLE Mapping-->
-        <!--<mapping class="com.modal.annotation.IS_A_InheritanceMapping.SINGLE_TABLE.Emp"/>
-        <mapping class="com.modal.annotation.IS_A_InheritanceMapping.SINGLE_TABLE.ContractEmp"/>
-        <mapping class="com.modal.annotation.IS_A_InheritanceMapping.SINGLE_TABLE.RegularEmp"/>-->
-
-        <!--JOINED_TABLE Mapping-->
-        <!--<mapping class="com.modal.annotation.IS_A_InheritanceMapping.JOINED_TABLE.Emp"/>
-        <mapping class="com.modal.annotation.IS_A_InheritanceMapping.JOINED_TABLE.ContractEmp"/>
-        <mapping class="com.modal.annotation.IS_A_InheritanceMapping.JOINED_TABLE.RegularEmp"/>-->
-
-        <!--TABLE_PER_CLASS Mapping-->
-        <!--<mapping class="com.modal.annotation.IS_A_InheritanceMapping.TABLE_PER_CLASS.Emp"/>
-        <mapping class="com.modal.annotation.IS_A_InheritanceMapping.TABLE_PER_CLASS.ContractEmp"/>
-        <mapping class="com.modal.annotation.IS_A_InheritanceMapping.TABLE_PER_CLASS.RegularEmp"/>-->
-
-        <!--Embedded mapping-->
-        <!--<mapping class="com.modal.Embeded.User"/>-->
-
-
-
-        <!--one To One (Uni-Directional) RelationShip-->
-        <!--Configuration based-->
-
-        <!--Same primary key relation-->
-        <!--<mapping resource="com/modal/has_A_RelationShip/oneToOne/configuration/uniDirectional/SamePK.hbm.xml"/>-->
-
-        <!--Same primary key relation-->
-        <!--<mapping resource="com/modal/has_A_RelationShip/oneToOne/configuration/uniDirectional/PrimaryKey_ForeignKey_hbm.xml"/>-->
-
-        <!--Relation table relation-->
-        <!--<mapping resource="com/modal/has_A_RelationShip/oneToOne/configuration/uniDirectional/RelationTable.hbm.xml"/>-->
-
-
-
-        <!--one To One (Uni-Directional) RelationShip-->
-        <!--Annotation Based-->
-
-        <!--Same primary key relation-->
-        <!--<mapping class="com.modal.has_A_RelationShip.oneToOne.Annotation.uniDirectional.Same_Pk.User"/>
-        <mapping class="com.modal.has_A_RelationShip.oneToOne.Annotation.uniDirectional.Same_Pk.Profile"/>-->
-
-        <!--Primary key Foreign key relation-->
-        <!--<mapping class="com.modal.has_A_RelationShip.oneToOne.Annotation.uniDirectional.Pk_FK.User"/>
-        <mapping class="com.modal.has_A_RelationShip.oneToOne.Annotation.uniDirectional.Pk_FK.Profile"/>-->
-
-        <!--Relation Table relation-->
-        <mapping class="com.modal.has_A_RelationShip.oneToOne.Annotation.uniDirectional.RelationTable.User"/>
-        <mapping class="com.modal.has_A_RelationShip.oneToOne.Annotation.uniDirectional.RelationTable.Profile"/>
 
     </session-factory>
 </hibernate-configuration>
